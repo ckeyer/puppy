@@ -1,0 +1,42 @@
+apps:
+  - name: nginx
+    seq: 1
+    env:
+      TZ: Asia/Shanghai
+    preRun:
+      # action
+    run:
+      # - nginx
+    postStart:
+      # action
+    preStop:
+      # action
+
+    healthCheck:
+      cmd: "curl -f http://localhost/"
+      http: 
+        url: http://localhost/
+        method: get
+        header:
+          Host: 1.1.1.1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+  - name: php-fpm
+    seq: 2
+    run:
+      # - php-fpm
+preRun:
+  cmd:
+    - ls
+  http:
+    url: localhost
+    method: GET
+    ca: /etc/pki/ca.crt
+    cert: /etc/pki/client.crt
+    certKey: /etc/pki/client.key
+preStop:
+# action
+signalBind:
+  - signal: 10
+    cmd: ["ls"]
