@@ -16,12 +16,12 @@ var (
 			"a": "aae",
 			"b": "bb",
 		},
-		PreRun: func(cmd *cobra.Command, args []string) {
+		PersistentPreRun: func(cmd *cobra.Command, args []string) {
 			if debug {
 				logrus.SetLevel(logrus.DebugLevel)
 			}
 			logrus.Debugf("start puppy.")
-			logrus.Info("debug?: %v", debug)
+			logrus.Infof("debug?: %v", debug)
 		},
 	}
 )

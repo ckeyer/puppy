@@ -13,7 +13,10 @@ apps:
       # action
 
     healthCheck:
-      cmd: "curl -f http://localhost/"
+      cmd: 
+        - "sh"
+        - "-c"
+        - "curl -f http://localhost/"
       http: 
         url: http://localhost/
         method: get

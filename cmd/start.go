@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"github.com/ckeyer/logrus"
+	"github.com/ckeyer/puppy/config"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 func init() {
@@ -14,9 +14,14 @@ func startCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "start",
 		Run: func(cmd *cobra.Command, args []string) {
-			cfg := viper.New()
-			cfg.AddConfigPath(configfile)
-			logrus.Infof("%+v", cfg.AllKeys())
+			logrus.Info("start.")
+			cfg, err := config.LoadFile(configfile)
+			if err != nil {
+				logrus.Fatalln("load config failed, %s", err)
+				return
+			}
+
+			logrus.Debugf("load config: %+v", cfg)
 		},
 	}
 

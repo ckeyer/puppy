@@ -40,7 +40,3 @@ type HealthCheck struct {
 	Timeout  string `json:"timeout" yaml:"timeout"`
 	Retries  int    `json:"retries" yaml:"retries"`
 }
-
-func init() {
-
-}
