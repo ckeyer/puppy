@@ -1,4 +1,6 @@
 # puppy
+
+[![Join the chat at https://gitter.im/ckeyer/puppy](https://badges.gitter.im/ckeyer/puppy.svg)](https://gitter.im/ckeyer/puppy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![](./puppy.jpg)
 
 Process Lifecycle Manager
