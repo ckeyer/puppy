@@ -39,10 +39,9 @@ test:
 release: clean local
 	mkdir -p bundles/$(PACKAGE_NAME)
 	mv bundles/$(APP) bundles/$(PACKAGE_NAME)
-	cd bundles ;\
-	 echo $(VERSION) > $(PACKAGE_NAME)/release.txt ;\
-	 $(HASH) $(PACKAGE_NAME)/$(APP) > $(PACKAGE_NAME)/sha1.txt ;\
-	 tar zcvf $(PACKAGE_NAME).tgz $(PACKAGE_NAME);
+	cd bundles/$(PACKAGE_NAME) && $(HASH) $(APP) > sha1.txt
+	echo $(VERSION) > bundles/$(PACKAGE_NAME)/release.txt
+	cd bundles && tar zcvf $(PACKAGE_NAME).tgz $(PACKAGE_NAME)
 
 clean:
 	rm -rf bundles/*
